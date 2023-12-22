@@ -1,10 +1,32 @@
 
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { BiSolidDashboard } from "react-icons/bi";
 import { IoIosCreate } from "react-icons/io";
 import { FaHistory, FaHome, FaListAlt } from "react-icons/fa";
 import { CgLogOut } from "react-icons/cg";
+import useAuth from '../../hooks/useAuth';
+import toast from 'react-hot-toast';
 const Dashboard = () => {
+    const {user,logOut} = useAuth();
+    const navigate = useNavigate();
+
+    const handleOut = () =>{
+        logOut().then(()=>{
+            toast.success('LogOut Success.', {
+                style: {
+                  border: '1px solid #713200',
+                  padding: '16px',
+                  color: '#713200',
+                },
+                iconTheme: {
+                  primary: '#713200',
+                  secondary: '#FFFAEE',
+                },
+              });
+              navigate("/")
+
+        }).catch()
+    }
     return (
         <div className=" flex font-secondary  ">
        
@@ -55,12 +77,12 @@ const Dashboard = () => {
              </NavLink>
            </li>
            <li>
-             <NavLink
+             <button onClick={handleOut}
                className="text-2xl text-white p-4 font-light"
-               to="/logOut"
+               
              >
                <CgLogOut className=" mr-3"></CgLogOut> LogOut
-             </NavLink>
+             </button>
            </li>
          </ul>
        </div>

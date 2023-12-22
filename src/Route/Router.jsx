@@ -9,6 +9,8 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import DashHome from "../components/DashHome/DashHome";
 import CreateTODO from "../components/CreateTODO/CreateTODO";
 import TodoList from "../components/TodoList/TodoList";
+import EditTask from "../components/EditTask/EditTask";
+import PrivateRoute from "./PrivateRoute";
 
 
 const Router = createBrowserRouter([
@@ -38,7 +40,7 @@ const Router = createBrowserRouter([
     },
     {
         path:"/dashboard",
-        element:<Dashboard></Dashboard>,
+        element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children:[
             {
                 path:"/dashboard",
@@ -51,6 +53,12 @@ const Router = createBrowserRouter([
             {
                 path:"/dashboard/todoList",
                 element:<TodoList></TodoList>
+            },
+            {
+                path:"edit/:id",
+                element:<EditTask></EditTask>,
+                loader:({params})=> fetch(`http://localhost:3000/api/v1/specificTodo/${params.id}`)
+                
             }
         ]
     }
