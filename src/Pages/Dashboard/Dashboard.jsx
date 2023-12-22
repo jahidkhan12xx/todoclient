@@ -59,7 +59,7 @@ const Dashboard = () => {
            <li>
              <NavLink
                className="text-2xl text-white p-4 font-light"
-               to="/previousTODO"
+               to="/dashboard/previousTODO"
              >
                <FaHistory className=" mr-3"></FaHistory> History
              </NavLink>

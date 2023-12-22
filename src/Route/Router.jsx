@@ -11,6 +11,7 @@ import CreateTODO from "../components/CreateTODO/CreateTODO";
 import TodoList from "../components/TodoList/TodoList";
 import EditTask from "../components/EditTask/EditTask";
 import PrivateRoute from "./PrivateRoute";
+import HistoryTodo from "../components/HistoryTodo/HistoryTodo";
 
 
 const Router = createBrowserRouter([
@@ -55,9 +56,13 @@ const Router = createBrowserRouter([
                 element:<TodoList></TodoList>
             },
             {
+                path:"/dashboard/previousTODO",
+                element:<HistoryTodo></HistoryTodo>
+            },
+            {
                 path:"edit/:id",
                 element:<EditTask></EditTask>,
-                loader:({params})=> fetch(`http://localhost:3000/api/v1/specificTodo/${params.id}`)
+                loader:({params})=> fetch(`https://todo-eta-tawny-36.vercel.app/api/v1/specificTodo/${params.id}`)
                 
             }
         ]

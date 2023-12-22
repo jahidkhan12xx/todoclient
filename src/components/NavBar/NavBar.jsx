@@ -1,6 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import { FaGoogle } from "react-icons/fa";
 
 const NavBar = () => {
     const {user,logOut} = useAuth();

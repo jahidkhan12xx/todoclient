@@ -37,20 +37,6 @@ const CreateTODO = () => {
     });
   };
 
-  //   const handleSubmit = (e) => {
-  //     e.preventDefault();
-  //     const form = e.target;
-  //     const title = form.title.value;
-  //     const details = form.details.value;
-  //     const date = form.date.value;
-  //     const priority = form.priority.value;
-  //     const userEmail = user.email;
-
-  //     const todoData = {title,details,date,priority,userEmail};
-
-  //     console.log(title,details,date,priority);
-  //
-  //   };
   return (
     <div className=" my-16">
       <h2 className=" text-center underline text-4xl font-bold ">
